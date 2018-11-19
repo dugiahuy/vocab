@@ -1,0 +1,3 @@
+rootProject.name = 'vocab'
+
+include ':app'
