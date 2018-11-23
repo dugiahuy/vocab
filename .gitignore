@@ -1,6 +1,14 @@
 # OSX
 #
 .DS_Store
+node_modules/
+.gitignore
+.gitattributes
+.flowconfig
+.eslintrc
+.babelrc
+.buckconfig
+.watchmanconfig
 
 # Xcode
 #
