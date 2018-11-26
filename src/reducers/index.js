@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
+import VocabReducer from './VocabReducer';
 
 export default combineReducers({
-  test: () => [],
+  vocabularies: VocabReducer,
 });

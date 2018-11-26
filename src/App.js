@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
 import reducers from './reducers';
+import SelectVocab from './components/SelectVocab';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <Provider store={createStore(reducers)}>
         <View>
           <Text>Vocab App</Text>
+          <SelectVocab />
         </View>
       </Provider>
     );
