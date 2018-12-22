@@ -25,16 +25,15 @@ export default styles = StyleSheet.create({
   containerScreenCard: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    backgroundColor: '#03a9f4',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
   textHeader: {
-    marginBottom: 15,
-    fontSize: 40,
-    color: 'white',
+    fontSize: 20,
+    fontWeight: '500',
     textAlign: 'center',
-    alignSelf: 'center',
-    width: 300
+    color: 'white',
+    letterSpacing: 1,
+    lineHeight: 22,
   },
 });

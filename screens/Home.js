@@ -2,25 +2,42 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Button } from 'react-native-elements';
+import { GradientBackground } from '../components';
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: 'Chọn 8 từ tiếng anh để bắt đầu học nhé!' };
-    console.log(this.state.title);
+    this.state = {
+      title: 'Chọn 8 từ tiếng anh để bắt đầu học nhé!',
+      titleButton: 'Chọn từ',
+      done: false,
+    };
   }
 
-  componentDidMount() {
-    console.log(this.props.title);
-    // if (this.props.title !== prevProps.title) {
-      this.setState({ title: this.props.title });
-    // }
+  componentDidUpdate(prevProps) {
+    if (this.props.done !== prevProps.done) {
+      this.setState({
+        title: 'Bạn đã sẵn sàng để học chưa nào. Hãy bắt đầu ngay !',
+        titleButton: 'Bắt đầu',
+        done: !this.state.done,
+      });
+    }
+  }
+
+  onButtonPress() {
+    if (!this.state.done) {
+      Actions.select();
+    } else {
+      Actions.learn({ words: this.props.words});
+    }
   }
 
   render() {
     return (
-      <View style={[styles.container, { backgroundColor: '#03a9f4' }]}>
+      <View style={styles.container}>
+        <GradientBackground />
+
         <View style={styles.container}>
           <Text style={styles.text}>
             {this.state.title}
@@ -29,9 +46,9 @@ class Home extends Component {
 
         <View style={styles.container}>
           <Button
-            onPress={() => Actions.select()}
+            onPress={this.onButtonPress.bind(this)}
             style={styles.button}
-            title="Start"
+            title={this.state.titleButton}
             backgroundColor="white"
             color="#03a9f4"
             fontSize={24}
@@ -62,7 +79,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    width: 200
+    width: 250
   }
 });
 

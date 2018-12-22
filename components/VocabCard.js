@@ -5,19 +5,17 @@ import {
   Text,
   StyleSheet,
   PanResponder,
-  Dimensions,
   LayoutAnimation,
   UIManager,
 } from 'react-native';
 import { Card, Divider, Button } from 'react-native-elements';
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from './Constant';
 import styles from '../themes';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const DURATION = 250;
 
-export default class VocabCard extends Component {
+class VocabCard extends Component {
   static defaultProps = {
     onSwipeLeft: () => {},
     onSwipeRight: () => {},
@@ -109,7 +107,7 @@ export default class VocabCard extends Component {
     return (
       <Card
         borderRadius={10}
-        paddingTop={30}
+        paddingTop={50}
         width={SCREEN_WIDTH*0.8}
       >
         <Text style={styles.textWord}>
@@ -124,7 +122,7 @@ export default class VocabCard extends Component {
           {vietnamese}
         </Text>
 
-        <Divider style={{ marginTop: 20, marginBottom: 20 }}/>
+        <Divider style={{ marginTop: 70, marginBottom: 15 }}/>
 
         <Button
           onPress={() => {this.forceSwipe('right')}}
@@ -172,3 +170,5 @@ export default class VocabCard extends Component {
     );
   }
 }
+
+export { VocabCard };
