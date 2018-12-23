@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Card, Divider, Button } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
+import { Button } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 import { SCREEN_WIDTH } from './Constant';
 
@@ -8,14 +9,22 @@ class WordCarousel extends Component {
   constructor(props) {
     super(props);
 
-    const { words } = this.props;
-    const newWords = [];
+    const words = [...this.props.words];
+    const data = [];
     while (words.length) {
-      newWords.push(words.splice(0, 4));
+      data.push(words.splice(0, 4));
     }
-    this.state = { newWords };
+
+    this.state = { data, buttonTitle: 'Tiếp' };
   }
 
+  onButtonPress() {
+    this.carousel.snapToNext();
+    console.log(this.props.words);
+    if (this.carousel.currentIndex === this.state.data.length - 1) {
+      Actions.quiz({ words: this.props.words });
+    }
+  }
 
   renderItem({ item, i }) {
     return (
@@ -32,25 +41,35 @@ class WordCarousel extends Component {
 
   render() {
     return (
-      <View>
-        <Carousel
-          ref={(c) => { this._carousel = c; }}
-          data={this.state.newWords}
-          renderItem={this.renderItem}
-          sliderWidth={SCREEN_WIDTH}
-          itemWidth={SCREEN_WIDTH*0.8}
-        />
-        <Button
-          onPress={() => { this._carousel.snapToNext(); }}
-          title="Tiếp"
-        />
+      <View style={{ flex: 1 }}>
+        <View style={{ flex: 4 }}>
+          <Carousel
+            ref={(c) => { this.carousel = c; }}
+            data={this.state.data}
+            renderItem={this.renderItem}
+            sliderWidth={SCREEN_WIDTH}
+            itemWidth={SCREEN_WIDTH * 0.8}
+          />
+        </View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Button
+            style={{ width: 200 }}
+            onPress={this.onButtonPress.bind(this)}
+            title="Tiếp"
+            backgroundColor="white"
+            color="#0BFAD4"
+            fontSize={18}
+            borderRadius={75}
+            fontWeight="bold"
+          />
+        </View>
       </View>
     );
   }
 }
 
-const Vocab = props => {
-  return props.item.map((word, i) => (
+const Vocab = props => 
+  props.item.map((word, i) => (
     <View key={i} style={[styles.containerWord, { borderTopWidth: 1, backgroundColor: '#f5f5f5' }]}>
       <Text style={styles.textWord}>
         {word.word}
@@ -59,8 +78,7 @@ const Vocab = props => {
         {word.vietnamese}
       </Text>
     </View>
-  ));
-}
+));
 
 const styles = {
   container: {
@@ -81,7 +99,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch',
-    borderTopColor: "#cfcfcf",
+    borderTopColor: '#cfcfcf',
   },
   textHeader: {
     fontSize: 16,
@@ -97,7 +115,7 @@ const styles = {
   },
   textVietnamese: {
     fontSize: 16,
-    color: "#757575",
+    color: '#757575',
   }
 };
 

@@ -3,7 +3,6 @@ import {
   View,
   Animated,
   Text,
-  StyleSheet,
   PanResponder,
   LayoutAnimation,
   UIManager,
@@ -60,31 +59,20 @@ class VocabCard extends Component {
     // LayoutAnimation.linear();
   }
 
-  forceSwipe(direction) {
-    const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
-
-    Animated.timing(this.state.position, {
-      toValue: { x, y: 0 },
-      duration: DURATION
-    }).start(() => this.onSwipeComplete(direction));
-  }
-
   onSwipeComplete(direction) {
     const { onSwipeLeft, onSwipeRight, data } = this.props;
     const item = data[this.state.index];
 
     console.log(direction);
 
-    direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item);
+    if (direction === 'right') {
+      onSwipeRight(item);
+    } else {
+      onSwipeLeft(item);
+    }
 
     this.state.position.setValue({ x: 0, y: 0 });
     this.setState({ index: this.state.index + 1 });
-  }
-
-  resetPosition() {
-    Animated.spring(this.state.position, {
-      toValue: { x: 0, y: 0}
-    }).start();
   }
 
   getCardLayout() {
@@ -101,6 +89,21 @@ class VocabCard extends Component {
     });
   }
 
+  resetPosition() {
+    Animated.spring(this.state.position, {
+      toValue: { x: 0, y: 0 }
+    }).start();
+  }
+
+  forceSwipe(direction) {
+    const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
+
+    Animated.timing(this.state.position, {
+      toValue: { x, y: 0 },
+      duration: DURATION
+    }).start(() => this.onSwipeComplete(direction));
+  }
+
   renderCard(item) {
     const { word, pronunciation, vietnamese } = item;
 
@@ -108,7 +111,7 @@ class VocabCard extends Component {
       <Card
         borderRadius={10}
         paddingTop={50}
-        width={SCREEN_WIDTH*0.8}
+        width={SCREEN_WIDTH * 0.8}
       >
         <Text style={styles.textWord}>
           {word}
@@ -122,14 +125,15 @@ class VocabCard extends Component {
           {vietnamese}
         </Text>
 
-        <Divider style={{ marginTop: 70, marginBottom: 15 }}/>
+        <Divider style={{ marginTop: 70, marginBottom: 15 }} />
 
         <Button
-          onPress={() => {this.forceSwipe('right')}}
+          onPress={() => { this.forceSwipe('right'); }}
           style={styles.button}
           title="Tôi muốn học"
           backgroundColor="#ffbd45"
           borderRadius={50}
+          fontWeight="bold"
         />
       </Card>
     );
@@ -154,7 +158,7 @@ class VocabCard extends Component {
       return (
         <Animated.View
           key={item.id}
-          style={{ position: "absolute", top: SCREEN_HEIGHT }}
+          style={{ position: 'absolute', top: SCREEN_HEIGHT }}
         >
           {this.renderCard(item)}
         </Animated.View>

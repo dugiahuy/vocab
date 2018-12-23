@@ -29,7 +29,7 @@ class Home extends Component {
     if (!this.state.done) {
       Actions.select();
     } else {
-      Actions.learn({ words: this.props.words});
+      Actions.learn({ words: this.props.words });
     }
   }
 
