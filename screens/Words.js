@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, LayoutAnimation } from 'react-native';
 import { Divider } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 import {
   Prepare,
   GradientBackground,
@@ -15,9 +16,8 @@ export default class Words extends Component {
   }
 
   componentDidMount() {
-    LayoutAnimation.spring();
+    Actions.refresh();
   }
-
 
   render() {
     return (

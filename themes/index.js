@@ -7,14 +7,14 @@ export default styles = StyleSheet.create({
   },
   textPronunciation: {
     fontSize: 15,
-    color: "#757575",
+    color: '#757575',
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 10,
   },
   textVietnamese: {
     fontSize: 20,
-    color: "#bdbdbd",
+    color: '#bdbdbd',
     textAlign: 'center',
     marginBottom: 10,
   },
