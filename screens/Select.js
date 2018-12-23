@@ -10,7 +10,7 @@ import {
   SCREEN_WIDTH,
   GradientBackground,
 } from '../components';
-import data from '../reducers/VocabData.json';
+import data from '../database/VocabData.json';
 import styles from '../themes';
 
 export default class SelectVocab extends Component {
@@ -25,6 +25,7 @@ export default class SelectVocab extends Component {
       count: this.state.count + 1,
       words: [...this.state.words, item],
     });
+    
     if (this.state.words.length === 8) {
       Actions.pop({ refresh: { done: true, words: this.state.words } });
     }

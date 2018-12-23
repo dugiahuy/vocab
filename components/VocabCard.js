@@ -35,6 +35,7 @@ class VocabCard extends Component {
         } else if (gesture.dx < -SWIPE_THRESHOLD) {
           this.forceSwipe('left');
         } else {
+          console.log('reset');
           this.resetPosition();
         }
       },
@@ -45,6 +46,7 @@ class VocabCard extends Component {
 
   componentDidUpdate() {
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+
     const customLayoutLinear = {
       duration: DURATION,
       create: {

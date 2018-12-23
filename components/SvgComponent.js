@@ -1,5 +1,5 @@
-import React from 'react'
-import Svg, { G, Ellipse, Path, Circle } from 'react-native-svg'
+import React from 'react';
+import Svg, { G, Ellipse, Path, Circle } from 'react-native-svg';
 
 export const StartUp = props => (
   <Svg width={108} height={128} {...props}>

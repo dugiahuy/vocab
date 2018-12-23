@@ -1,0 +1,352 @@
+[
+  {
+    "id": 0,
+    "word": "amazing",
+    "pronunciation": "/əˈmeɪzɪŋ/",
+    "vietnamese": "đáng ngạc nhiên"
+  },,
+
+  {
+    "id": 1,
+    "word": "budget",
+    "pronunciation": "/ˈbʌdʒɪt/",
+    "vietnamese": "ngân sách"
+  },,
+
+  {
+    "id": 3,
+    "word": "deposit",
+    "pronunciation": "/dɪˈpɑːzɪt/",
+    "vietnamese": "đặt cọc"
+  },,
+
+  {
+    "id": 4,
+    "word": "destination",
+    "pronunciation": "/destɪˈneɪʃn/",
+    "vietnamese": "điểm đến"
+  },,
+
+  {
+    "id": 5,
+    "word": "documentation",
+    "pronunciation": "/dɑːkjumenˈteɪʃn/",
+    "vietnamese": "tài liệu là giấy tờ"
+  },,
+
+  {
+    "id": 6,
+    "word": "distribution",
+    "pronunciation": "/dɪstrɪˈbjuːʃn/",
+    "vietnamese": " kênh cung cấp"
+  },,
+
+  {
+    "id": 7,
+    "word": "high season",
+    "pronunciation": "/haɪ ˈsiːzn/",
+    "vietnamese": "mùa du lịch cao điểm"
+  },,
+
+  {
+    "id": 8,
+    "word": "inclusive ",
+    "pronunciation": "/ɪnˈkluːsɪv/",
+    "vietnamese": "bao gồm"
+  },,
+
+  {
+    "id": 9,
+    "word": "itinerary",
+    "pronunciation": "/aɪˈtɪnəreri/",
+    "vietnamese": "lịch trình"
+  },,
+
+  {
+    "id": 10,
+    "word": "passport",
+    "pronunciation": "/ˈpæspɔːrt/",
+    "vietnamese": "hộ chiếu"
+  },,
+
+  {
+    "id": 11,
+    "word": "ticket",
+    "pronunciation": "/ˈtɪkɪt/",
+    "vietnamese": "vé"
+  },,
+
+  {
+    "id": 12,
+    "word": "transfer",
+    "pronunciation": "/trænsˈfɜːr/",
+    "vietnamese": "vận chuyển {hành khách},"
+  },,
+
+  {
+    "id": 13,
+    "word": "traveller",
+    "pronunciation": "/ˈtrævələr/",
+    "vietnamese": "khách du lịch"
+  },,
+
+  {
+    "id": 14,
+    "word": "exercise",
+    "pronunciation": "/ˈeksərsaɪz/",
+    "vietnamese": "bài tập"
+  },,
+
+  {
+    "id": 15,
+    "word": "tutor",
+    "pronunciation": "/tuːtər/",
+    "vietnamese": "giáo viên dạy thêm"
+  },,
+
+  {
+    "id": 16,
+    "word": "academic transcript",
+    "pronunciation": "/ækəˈdemɪk ˈtrænskrɪpt/",
+    "vietnamese": "bảng điểm"
+  },,
+
+  {
+    "id": 17,
+    "word": "certificate",
+    "pronunciation": "/sərˈtɪfɪkət/",
+    "vietnamese": "bằng, chứng chỉ"
+  },,
+
+  {
+    "id": 18,
+    "word": "qualification",
+    "pronunciation": "/ˌkwɑːlɪfɪˈkeɪʃn/",
+    "vietnamese": "bằng cấp"
+  },,
+
+  {
+    "id": 19,
+    "word": "technology",
+    "pronunciation": "/tekˈnɑːlədʒi/",
+    "vietnamese": "công nghệ"
+  },,
+
+  {
+    "id": 20,
+    "word": "portrait",
+    "pronunciation": "/'pɔ:treit/",
+    "vietnamese": "chân dung",
+    "type": "noun"
+  },
+
+  {
+      "id": 21,
+      "word": "check",
+      "pronunciation": "/t∫ek/",
+      "vietnamese": "kiểm tra"
+  },
+
+  {
+      "id": 22,
+      "word" : "dump",
+      "pronunciation" : "/'dʌmp/",
+      "vietnamese": "bãi rác"
+  },
+
+  {
+      "id": 23,
+      "word" : "portrait",
+      "pronunciation" : "/'pɔ:treit/",
+      "vietnamese": "chân dung"
+  },
+
+  {
+      "id": 24,
+      "word" : "chemistry",
+      "pronunciation" : "/'kemistri/",
+      "vietnamese": "hóa học"
+  },
+
+  {
+      "id": 25,
+      "word" : "compute",
+      "pronunciation" : "/kəm'pju:t/",
+      "vietnamese": "tính toán"
+  },
+
+  {
+      "id": 26,
+      "word" : "meat",
+      "pronunciation" : "/mi:t/",
+      "vietnamese": "thịt"
+  },
+
+  {
+      "id": 27,
+      "word" : "haunt",
+      "pronunciation" : "/hɔ:nt/",
+      "vietnamese": "ám ảnh"
+  },
+
+  {
+      "id": 28,
+      "word" : "immediate",
+      "pronunciation" : "/i'mi:djət/",
+      "vietnamese": "ngay lập tức"
+  },
+
+  {
+      "id": 29,
+      "word" : "payment",
+      "pronunciation" : "/'peimənt/",
+      "vietnamese": "thanh toán"
+  },
+
+  {
+      "id": 30,
+      "word" : "fascinate",
+      "pronunciation" : "/'fæsineit/",
+      "vietnamese": "mê hoặc"
+  },
+
+  {
+      "id": 31,
+      "word" : "mouse",
+      "pronunciation" : "/maus/",
+      "vietnamese": "chuột"
+  },
+
+  {
+      "id": 32,
+      "word" : "ear",
+      "pronunciation" : "/iə/",
+      "vietnamese": "tai"
+  },
+
+  {
+      "id": 33,
+      "word" : "statutory",
+      "pronunciation" : "/'stæt∫utri/",
+      "vietnamese": "do pháp luật định"
+  },
+
+  {
+      "id": 34,
+      "word" : "shoe",
+      "pronunciation" : "/∫u:/",
+      "vietnamese": "giày"
+  },
+
+  {
+      "id": 35,
+      "word" : "sideways",
+      "pronunciation" : "/'saidweiz/",
+      "vietnamese": "đi ngang"
+  },
+
+  {
+      "id": 36,
+      "word" : "truck",
+      "pronunciation" : "/trʌk/",
+      "vietnamese": "xe tải"
+  },
+
+  {
+      "id": 37,
+      "word" : "DNA",
+      "pronunciation" : "/,di: en 'ei/",
+      "vietnamese": "DNA"
+  },
+
+  {
+      "id": 38,
+      "word" : "neck",
+      "pronunciation" : "/nek/",
+      "vietnamese": "cái cổ"
+  },
+
+  {
+      "id": 39,
+      "word" : "foot",
+      "pronunciation" : "/fut/",
+      "vietnamese": "chân"
+  },
+
+  {
+      "id": 40,
+      "word" : "surplus",
+      "pronunciation" : "/'sə:pləs/",
+      "vietnamese": "số dư"
+  },
+
+  {
+      "id": 41,
+      "word" : "adjustment",
+      "pronunciation" : "/ə'dʒʌstmənt/",
+      "vietnamese": "điều chỉnh"
+  },
+
+  {
+      "id": 42,
+      "word" : "weakness",
+      "pronunciation" : "/'wi:knis/",
+      "vietnamese": "yếu đuối"
+  },
+
+  {
+      "id": 43,
+      "word" : "fine",
+      "pronunciation" : "/fain/",
+      "vietnamese": "khỏe"
+  },
+
+  {
+      "id": 44,
+      "word" : "gallery",
+      "pronunciation" : "/'gæləri/",
+      "vietnamese": "bộ sưu tập"
+  },
+
+  {
+      "id": 45,
+      "word" : "alter",
+      "pronunciation" : "/'ɔ:ltə/",
+      "vietnamese": "thay đổi"
+  },
+
+  {
+      "id": 46,
+      "word" : "onto",
+      "pronunciation" : "/'ɔntu:/",
+      "vietnamese": "trên"
+  },
+
+  {
+      "id": 47,
+      "word" : "nevertheless",
+      "pronunciation" : "/,nevəðə'les/",
+      "vietnamese": "tuy nhiên"
+  },
+
+  {
+      "id": 48,
+      "word" : "hang",
+      "pronunciation" : "/hæη/",
+      "vietnamese": "treo"
+  },
+
+  {
+      "id": 49,
+      "word" : "probable",
+      "pronunciation" : "/'prɔbəbl/",
+      "vietnamese": "có thể xảy ra"
+  },
+
+  {
+      "id":50,
+      "word" : "another",
+      "pronunciation" : "/ə'nʌðə/",
+      "vietnamese": "khác"
+  },
+]

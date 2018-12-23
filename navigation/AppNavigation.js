@@ -8,10 +8,11 @@ import Learn from '../screens/Learn';
 const AppNavigation = () => (
   <Router>
     <Stack key="root" hideNavBar >
-      <Scene key="home" hideNavBar >
+      <Scene key="home" hideNavBar initial>
         <Scene
           key="start"
           component={Home}
+          hideNavBar
           initial
         />
         <Scene
@@ -21,19 +22,17 @@ const AppNavigation = () => (
         />
       </Scene>
 
-      <Scene key="learn" hideNavBar initial >
+      <Scene key="learn" hideNavBar>
         <Scene
           key="words"
           component={Words}
           hideNavBar
-
+          initial
         />
         <Scene
           key="quiz"
           component={Learn}
           hideNavBar
-          initial
-          
         />
       </Scene>
     </Stack>

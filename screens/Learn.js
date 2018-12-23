@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, LayoutAnimation } from 'react-native';
+import { View, Text } from 'react-native';
 import { Divider } from 'react-native-elements';
 import {
-  Prepare,
+  Quiz,
   GradientBackground,
-  SCREEN_WIDTH,
+  SCREEN_WIDTH
 } from '../components';
 
-export default class Words extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { words: this.props.words };
-  }
-
-  componentDidMount() {
-    LayoutAnimation.spring();
-  }
-
-
+export default class Learn extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -26,14 +15,14 @@ export default class Words extends Component {
 
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
           <Text style={styles.textHeader}>
-            CHUẨN BỊ THỰC HÀNH
+            THỰC HÀNH
           </Text>
         </View>
 
         <Divider style={styles.divider} />
 
-        <View style={{ flex: 5 }}>
-          <Prepare words={this.state.words} />
+        <View style={{ flex: 7 }}>
+          <Quiz words={this.props.words} />
         </View>
       </View>
     );
@@ -59,7 +48,7 @@ const styles = {
     backgroundColor: '#67daff',
     width: SCREEN_WIDTH * 0.8,
     height: 2,
-    marginTop: 25,
-    marginBottom: 30,
+    marginTop: 15,
+    marginBottom: 20,
   },
 };

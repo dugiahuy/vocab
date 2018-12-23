@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -5,16 +6,11 @@ import { Button } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 import { SCREEN_WIDTH } from './Constant';
 
-class WordCarousel extends Component {
+class Prepare extends Component {
   constructor(props) {
     super(props);
 
-    const words = [...this.props.words];
-    const data = [];
-    while (words.length) {
-      data.push(words.splice(0, 4));
-    }
-
+    const data = _.chunk(this.props.words, 4);
     this.state = { data, buttonTitle: 'Tiếp' };
   }
 
@@ -49,6 +45,7 @@ class WordCarousel extends Component {
             renderItem={this.renderItem}
             sliderWidth={SCREEN_WIDTH}
             itemWidth={SCREEN_WIDTH * 0.8}
+            scrollEnabled={false}
           />
         </View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -68,7 +65,7 @@ class WordCarousel extends Component {
   }
 }
 
-const Vocab = props => 
+const Vocab = props =>
   props.item.map((word, i) => (
     <View key={i} style={[styles.containerWord, { borderTopWidth: 1, backgroundColor: '#f5f5f5' }]}>
       <Text style={styles.textWord}>
@@ -119,4 +116,4 @@ const styles = {
   }
 };
 
-export { WordCarousel };
+export { Prepare };

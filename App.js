@@ -1,30 +1,42 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import firebase from 'firebase';
-import ReduxThunk from 'redux-thunk';
-import AppNavigation from './navigation/AppNavigation';
-import reducers from './reducers';
+import React from 'react';
+import { Stack, Scene, Router } from 'react-native-router-flux';
+import Home from './screens/Home';
+import Select from './screens/Select';
+import Words from './screens/Words';
+import Learn from './screens/Learn';
 
-export default class App extends Component {
-  componentWillMount() {
-    firebase.initializeApp({
-      apiKey: 'AIzaSyCkJbPkArP0coAmmwu2g7TIRWxQyJL12_w',
-      authDomain: 'auth-ea55e.firebaseapp.com',
-      databaseURL: 'https://auth-ea55e.firebaseio.com',
-      projectId: 'auth-ea55e',
-      storageBucket: 'auth-ea55e.appspot.com',
-      messagingSenderId: '839553083852',
-    });
-  }
+const App = () => (
+  <Router>
+    <Stack key="root" hideNavBar >
+      <Scene key="home" hideNavBar initial>
+        <Scene
+          key="start"
+          component={Home}
+          hideNavBar
+          initial
+        />
+        <Scene
+          key="select"
+          component={Select}
+          hideNavBar
+        />
+      </Scene>
 
-  render() {
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+      <Scene key="learn" hideNavBar>
+        <Scene
+          key="words"
+          component={Words}
+          hideNavBar
+          initial
+        />
+        <Scene
+          key="quiz"
+          component={Learn}
+          hideNavBar
+        />
+      </Scene>
+    </Stack>
+  </Router>
+);
 
-    return (
-      <Provider store={store}>
-        <AppNavigation />
-      </Provider>
-    );
-  }
-}
+export default App;
