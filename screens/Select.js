@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Divider } from 'react-native-elements';
 import {
@@ -13,7 +10,7 @@ import {
 import data from '../database/VocabData.json';
 import styles from '../themes';
 
-export default class SelectVocab extends Component {
+export default class Select extends Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +22,7 @@ export default class SelectVocab extends Component {
       count: this.state.count + 1,
       words: [...this.state.words, item],
     });
-    
+
     if (this.state.words.length === 8) {
       Actions.pop({ refresh: { done: true, words: this.state.words } });
     }
@@ -35,13 +32,13 @@ export default class SelectVocab extends Component {
     console.log(item);
   }
 
-
   renderTextHeader() {
     return (this.state.count === 0) ?
       'HÃY CHỌN 8 TỪ MỚI ĐỂ HỌC' : `ĐÃ CHỌN ${this.state.count} TRÊN 8 TỪ MỚI`;
   }
 
   render() {
+    console.log(data);
     return (
       <View style={styles.containerScreenCard}>
         <GradientBackground />
