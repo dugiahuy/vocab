@@ -16,7 +16,7 @@ class Prepare extends Component {
 
   onButtonPress() {
     this.carousel.snapToNext();
-    console.log(this.props.words);
+
     if (this.carousel.currentIndex === this.state.data.length - 1) {
       Actions.quiz({ words: this.props.words });
     }
@@ -45,7 +45,6 @@ class Prepare extends Component {
             renderItem={this.renderItem}
             sliderWidth={SCREEN_WIDTH}
             itemWidth={SCREEN_WIDTH * 0.8}
-            scrollEnabled={false}
           />
         </View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

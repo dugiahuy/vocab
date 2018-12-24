@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 import Carousel from 'react-native-snap-carousel';
 import { SCREEN_WIDTH } from './Constant';
 import Vocab from './Vocab';
@@ -18,6 +19,14 @@ class Quiz extends Component {
     });
 
     this.state = { data };
+  }
+
+  onButtonPress() {
+    this.carousel.snapToNext();
+
+    if (this.carousel.currentIndex === this.state.data.length - 1) {
+      Actions.home({ refresh: { done: false } });
+    }
   }
 
   renderItem({ item, i }) {
@@ -43,7 +52,7 @@ class Quiz extends Component {
           <Carousel
             ref={(c) => { this.carousel = c; }}
             data={this.state.data}
-            renderItem={this.renderItem}
+            renderItem={this.renderItem.bind(this)}
             sliderWidth={SCREEN_WIDTH}
             itemWidth={SCREEN_WIDTH * 0.8}
             scrollEnabled={false}
@@ -53,7 +62,7 @@ class Quiz extends Component {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Button
             style={{ width: 200 }}
-            onPress={() => this.carousel.snapToNext()}
+            onPress={this.onButtonPress.bind(this)}
             title="Tiếp"
             backgroundColor="white"
             color="#0BFAD4"
@@ -106,7 +115,7 @@ const styles = {
     marginTop: 5,
   },
   textWord: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '500',
     marginBottom: 2,
   },

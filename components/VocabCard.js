@@ -65,8 +65,6 @@ class VocabCard extends Component {
     const { onSwipeLeft, onSwipeRight, data } = this.props;
     const item = data[this.state.index];
 
-    console.log(direction);
-
     if (direction === 'right') {
       onSwipeRight(item);
     } else {
@@ -99,10 +97,9 @@ class VocabCard extends Component {
 
   forceSwipe(direction) {
     const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
-
     Animated.timing(this.state.position, {
       toValue: { x, y: 0 },
-      duration: DURATION
+      duration: DURATION,
     }).start(() => this.onSwipeComplete(direction));
   }
 

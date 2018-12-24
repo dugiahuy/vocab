@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -7,8 +8,9 @@ import {
   SCREEN_WIDTH,
   GradientBackground,
 } from '../components';
-import data from '../database/VocabData.json';
-import styles from '../themes';
+import datas from '../database/VocabData.json';
+
+const data = _.shuffle(datas);
 
 export default class Select extends Component {
   constructor(props) {
@@ -23,7 +25,7 @@ export default class Select extends Component {
       words: [...this.state.words, item],
     });
 
-    if (this.state.words.length === 8) {
+    if (this.state.count === 8) {
       Actions.pop({ refresh: { done: true, words: this.state.words } });
     }
   }
@@ -38,9 +40,8 @@ export default class Select extends Component {
   }
 
   render() {
-    console.log(data);
     return (
-      <View style={styles.containerScreenCard}>
+      <View style={styles.container}>
         <GradientBackground />
 
         <View style={{ flex: 1, justifyContent: 'flex-end', alignSelf: 'center' }}>
@@ -49,7 +50,7 @@ export default class Select extends Component {
           </Text>
         </View>
 
-        <Divider style={styless.divider} />
+        <Divider style={styles.divider} />
 
         <View style={{ flex: 4, alignSelf: 'center', justifyContent: 'flex-start' }}>
           <VocabCard
@@ -63,12 +64,27 @@ export default class Select extends Component {
   }
 }
 
-const styless = {
+const styles = {
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
   divider: {
     backgroundColor: '#67daff',
     width: SCREEN_WIDTH * 0.8,
     height: 2,
     marginTop: 30,
     marginBottom: 25,
+  },
+  textHeader: {
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+    color: 'white',
+    letterSpacing: 1,
+    lineHeight: 22,
   },
 };
