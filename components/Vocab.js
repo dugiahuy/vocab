@@ -18,7 +18,7 @@ class Vocab extends Component {
   }
 
   changeColor(word, i) {
-    if (word.vietnamese === this.state.correct.vietnamese) {
+    if (word === this.state.correct) {
       this.setState({
         color: { ...this.state.color, [i]: '#00e676' },
         disabled: true,
@@ -43,7 +43,7 @@ class Vocab extends Component {
           backgroundColor={this.state.color[i]}
         >
           <Text style={styles.textVietnamese}>
-            {word.vietnamese}
+            {word}
           </Text>
         </View>
       </TouchableHighlight>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Button } from 'react-native-elements';
-import { GradientBackground } from '../components';
+import { GradientBackground, StartUp } from '../components';
 
 class Home extends Component {
   constructor(props) {
@@ -11,26 +11,52 @@ class Home extends Component {
     this.state = {
       title: 'Chọn 8 từ tiếng anh để bắt đầu học nhé!',
       titleButton: 'Chọn từ',
-      done: false,
+      showButton: true,
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.done !== prevProps.done) {
+  componentDidMount() {
+    if (this.props.done === 'learned') {
+      this.setState({
+        title: 'Chúc mừng bạn đã hoàn thành ngày hôm nay. Hãy quay lại vào ngày mai nhé !',
+        showButton: !this.state.showButton,
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.done === 'selected') {
       this.setState({
         title: 'Bạn đã sẵn sàng để học chưa nào. Hãy bắt đầu ngay !',
         titleButton: 'Bắt đầu',
-        done: !this.state.done,
       });
     }
   }
 
   onButtonPress() {
-    if (!this.state.done) {
-      Actions.select();
+    if (this.props.done === 'selected') {
+      Actions.words({ words: this.props.words });
     } else {
-      Actions.learn({ words: this.props.words });
+      Actions.select();
     }
+  }
+
+  renderButton() {
+    if (this.state.showButton) {
+      return (
+        <Button
+          onPress={this.onButtonPress.bind(this)}
+          style={styles.button}
+          title={this.state.titleButton}
+          backgroundColor="white"
+          color="#03a9f4"
+          fontSize={24}
+          borderRadius={75}
+          fontWeight="bold"
+        />
+      );
+    }
+    return <StartUp />;
   }
 
   render() {
@@ -38,23 +64,14 @@ class Home extends Component {
       <View style={styles.container}>
         <GradientBackground />
 
-        <View style={styles.container}>
+        <View style={[styles.container, { flex: 2 }]}>
           <Text style={styles.text}>
             {this.state.title}
           </Text>
         </View>
 
         <View style={styles.container}>
-          <Button
-            onPress={this.onButtonPress.bind(this)}
-            style={styles.button}
-            title={this.state.titleButton}
-            backgroundColor="white"
-            color="#03a9f4"
-            fontSize={24}
-            borderRadius={75}
-            fontWeight="bold"
-          />
+          {this.renderButton()}
         </View>
       </View>
     );
@@ -66,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'stretch',
+    alignItems: 'center',
     alignSelf: 'stretch'
   },
   text: {

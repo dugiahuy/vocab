@@ -26,7 +26,7 @@ export default class Select extends Component {
     });
 
     if (this.state.count === 8) {
-      Actions.pop({ refresh: { done: true, words: this.state.words } });
+      Actions.pop({ refresh: { done: 'selected', words: this.state.words } });
     }
   }
 

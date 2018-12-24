@@ -8,33 +8,27 @@ import Learn from './screens/Learn';
 const App = () => (
   <Router>
     <Stack key="root" hideNavBar >
-      <Scene key="home" hideNavBar initial>
-        <Scene
-          key="start"
-          component={Home}
-          hideNavBar
-          initial
-        />
-        <Scene
-          key="select"
-          component={Select}
-          hideNavBar
-        />
-      </Scene>
-
-      <Scene key="learn" hideNavBar>
-        <Scene
-          key="words"
-          component={Words}
-          hideNavBar
-          initial
-        />
-        <Scene
-          key="quiz"
-          component={Learn}
-          hideNavBar
-        />
-      </Scene>
+      <Scene
+        key="home"
+        component={Home}
+        hideNavBar
+        initial
+      />
+      <Scene
+        key="select"
+        component={Select}
+        hideNavBar
+      />
+      <Scene
+        key="words"
+        component={Words}
+        hideNavBar
+      />
+      <Scene
+        key="learn"
+        component={Learn}
+        hideNavBar
+      />
     </Stack>
   </Router>
 );

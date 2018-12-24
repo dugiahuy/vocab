@@ -9,12 +9,6 @@ import {
 } from '../components';
 
 export default class Words extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { words: this.props.words };
-  }
-
   componentDidMount() {
     Actions.refresh();
   }
@@ -33,7 +27,7 @@ export default class Words extends Component {
         <Divider style={styles.divider} />
 
         <View style={{ flex: 5 }}>
-          <Prepare words={this.state.words} />
+          <Prepare words={this.props.words} />
         </View>
       </View>
     );

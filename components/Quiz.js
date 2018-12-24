@@ -12,12 +12,24 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
 
-    const data = this.props.words.map((e) => {
+    // Convert data to learn by vietnamese
+    const data1 = this.props.words.map((e) => {
       const a = _.differenceBy(_.shuffle(vocabData), [e], 'id').slice(0, 3);
       a.push(e);
-      return a.reverse();
+      a.reverse();
+      const b = a.map(el => ({ vi: el.vietnamese, en: el.word }));
+      return b;
     });
-
+    // Convert data to learn by english
+    const data2 = this.props.words.map((e) => {
+      const a = _.differenceBy(_.shuffle(vocabData), [e], 'id').slice(0, 3);
+      a.push(e);
+      a.reverse();
+      const b = a.map(el => ({ vi: el.word, en: el.vietnamese }));
+      return b;
+    });
+    // Join data
+    const data = data1.concat(data2);
     this.state = { data };
   }
 
@@ -25,22 +37,24 @@ class Quiz extends Component {
     this.carousel.snapToNext();
 
     if (this.carousel.currentIndex === this.state.data.length - 1) {
-      Actions.home({ refresh: { done: false } });
+      Actions.home({ done: 'learned' });
     }
   }
 
   renderItem({ item, i }) {
+    const answer = item.map(e => e.vi);
+
     return (
       <View key={i} style={styles.containerCard}>
         <View style={styles.containerHeader}>
           <Text style={styles.textWord}>
-            {item[0].word}
+            {item[0].en}
           </Text>
           <Text style={styles.textHeader}>
             CHỌN NGHĨA ĐÚNG
           </Text>
         </View>
-        <Vocab item={item} />
+        <Vocab item={answer} />
       </View>
     );
   }

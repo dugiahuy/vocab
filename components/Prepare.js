@@ -18,7 +18,7 @@ class Prepare extends Component {
     this.carousel.snapToNext();
 
     if (this.carousel.currentIndex === this.state.data.length - 1) {
-      Actions.quiz({ words: this.props.words });
+      Actions.learn({ words: this.props.words });
     }
   }
 
@@ -47,6 +47,7 @@ class Prepare extends Component {
             itemWidth={SCREEN_WIDTH * 0.8}
           />
         </View>
+
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Button
             style={{ width: 200 }}
@@ -70,6 +71,7 @@ const Vocab = props =>
       <Text style={styles.textWord}>
         {word.word}
       </Text>
+
       <Text style={styles.textVietnamese}>
         {word.vietnamese}
       </Text>
